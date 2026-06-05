@@ -1,0 +1,218 @@
+/* Shared Ocean/Travel navbar theme (glassmorphism + gradients + responsive hamburger) */
+
+:root {
+  --ship-navy: #071427;
+  --ship-blue-1: #0a2a66;
+  --ship-blue-2: #1f8cff;
+  --ship-blue-3: #37bdf8;
+  --ship-text: rgba(255, 255, 255, 0.95);
+  --ship-muted: rgba(255, 255, 255, 0.72);
+  --ship-border: rgba(255, 255, 255, 0.14);
+  --ship-panel: rgba(255, 255, 255, 0.06);
+  --ship-panel-2: rgba(255, 255, 255, 0.09);
+  --ship-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+  --ship-shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.28);
+
+  --ship-radius: 18px;
+  --ship-radius-sm: 14px;
+}
+
+.shipbar {
+  position: sticky;
+  top: 12px;
+  z-index: 30;
+  margin: 10px 0 18px;
+  border-radius: var(--ship-radius);
+
+  /* glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(135deg, rgba(31, 140, 255, 0.16) 0%, rgba(11, 20, 39, 0.55) 55%, rgba(55, 189, 248, 0.12) 100%);
+
+  box-shadow: var(--ship-shadow-soft);
+}
+
+.shipbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+}
+
+.shipbar__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.shipbar__logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(55, 189, 248, 0.95) 0%, rgba(31, 140, 255, 0.9) 40%, rgba(10, 42, 102, 0.6) 100%);
+  box-shadow:
+    0 10px 28px rgba(55, 189, 248, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  display: grid;
+  place-items: center;
+}
+
+.shipbar__logo span {
+  font-size: 16px;
+  transform: translateY(-0.5px);
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.22));
+}
+
+.shipbar__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.shipbar__title {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  color: var(--ship-text);
+  font-weight: 800;
+}
+
+.shipbar__subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--ship-muted);
+}
+
+.shipbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.shipbar__btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ship-muted);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.shipbar__btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--ship-text);
+  transform: translateY(-1px);
+}
+
+.shipbar__btn:active {
+  transform: translateY(0px);
+}
+
+.shipbar__btn--active {
+  color: rgba(255, 255, 255, 0.98);
+  background: linear-gradient(135deg, rgba(31, 140, 255, 0.18) 0%, rgba(55, 189, 248, 0.12) 100%);
+  border-color: rgba(55, 189, 248, 0.42);
+  box-shadow: 0 12px 30px rgba(55, 189, 248, 0.16);
+}
+
+.shipbar__hamburger {
+  display: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ship-text);
+  border-radius: 14px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+  font-weight: 800;
+}
+
+.shipbar__hamburger:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.shipbar__hamburger:active {
+  transform: translateY(0px);
+}
+
+.shipbar__mobilePanel {
+  display: none;
+  padding: 0 14px 14px;
+}
+
+.shipbar__mobileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+/* Logout - red attractive gradient */
+.shipbar__btn--danger {
+  border: none;
+  background: linear-gradient(135deg, rgba(255, 46, 99, 0.95) 0%, rgba(255, 122, 89, 0.95) 100%);
+  box-shadow: 0 12px 30px rgba(255, 46, 99, 0.18);
+  color: white;
+}
+
+.shipbar__btn--danger:hover {
+  background: linear-gradient(135deg, rgba(255, 46, 99, 1) 0%, rgba(255, 166, 89, 1) 100%);
+  box-shadow: 0 16px 40px rgba(255, 46, 99, 0.26);
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .shipbar__left {
+    min-width: unset;
+  }
+  .shipbar__nav {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 720px) {
+  .shipbar {
+    top: 8px;
+    margin: 8px 0 14px;
+  }
+
+  .shipbar__inner {
+    padding: 12px 12px;
+  }
+
+  .shipbar__nav {
+    display: none;
+  }
+
+  .shipbar__hamburger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .shipbar__mobilePanel {
+    display: block;
+  }
+}
+

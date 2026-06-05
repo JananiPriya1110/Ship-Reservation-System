@@ -1,0 +1,370 @@
+/* Modern Admin Dashboard UI (dark blue + light gray + shadows + animations) */
+
+:root {
+  --ad-bg: #f4f7fb;
+  --ad-surface: rgba(255, 255, 255, 0.86);
+  --ad-surface-2: rgba(255, 255, 255, 0.72);
+  --ad-text: #0f2340;
+  --ad-muted: rgba(15, 35, 64, 0.66);
+
+  --ad-navy: #071427;
+  --ad-blue: #0b2a66;
+  --ad-blue-2: #1f8cff;
+  --ad-blue-3: #37bdf8;
+
+  --ad-border: rgba(12, 31, 58, 0.12);
+  --ad-shadow: 0 18px 45px rgba(7, 20, 39, 0.14);
+  --ad-shadow-2: 0 10px 30px rgba(7, 20, 39, 0.12);
+
+  --ad-radius: 18px;
+  --ad-radius-sm: 14px;
+}
+
+/* Page background */
+.adminDash {
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 520px at 20% 10%, rgba(55, 189, 248, 0.22), transparent 58%),
+    radial-gradient(900px 420px at 85% 20%, rgba(31, 140, 255, 0.18), transparent 60%),
+    linear-gradient(180deg, #f7fbff 0%, #f1f5fb 40%, var(--ad-bg) 100%);
+  color: var(--ad-text);
+  padding: 18px 14px 42px;
+}
+
+.adminDash__wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Top bar */
+.adminDashTop {
+  position: sticky;
+  top: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--ad-radius);
+  background: rgba(255, 255, 255, 0.66);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--ad-border);
+  box-shadow: var(--ad-shadow-2);
+}
+
+.adminDashTop__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.adminDashTop__logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(55, 189, 248, 1) 0%, rgba(31, 140, 255, 0.92) 45%, rgba(11, 42, 102, 0.62) 100%);
+  box-shadow: 0 12px 26px rgba(31, 140, 255, 0.24);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+.adminDashTop__title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.adminDashTop__title h1 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.adminDashTop__title p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: var(--ad-muted);
+}
+
+.adminDashTop__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adminDashProfile {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(12, 31, 58, 0.12);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.adminDashProfile__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(11, 42, 102, 1) 0%, rgba(31, 140, 255, 1) 100%);
+  color: white;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 14px 30px rgba(11, 42, 102, 0.25);
+}
+
+.adminDashProfile__meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.adminDashProfile__meta span:first-child {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.adminDashProfile__meta span:last-child {
+  font-size: 12px;
+  color: var(--ad-muted);
+}
+
+/* Logout button */
+.adminDashBtn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: white;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+  box-shadow: 0 14px 30px rgba(255, 46, 99, 0.22);
+  background: linear-gradient(135deg, #ff2e63 0%, #ff7a59 100%);
+}
+
+.adminDashBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(255, 46, 99, 0.28);
+  filter: saturate(1.1);
+}
+
+.adminDashBtn:active {
+  transform: translateY(0px);
+}
+
+/* Hero / Welcome */
+.adminDashHero {
+  margin: 18px 4px 18px;
+  padding: 18px;
+  border-radius: var(--ad-radius);
+  border: 1px solid var(--ad-border);
+  background:
+    linear-gradient(135deg, rgba(11, 42, 102, 0.07) 0%, rgba(31, 140, 255, 0.10) 35%, rgba(55, 189, 248, 0.10) 100%),
+    rgba(255, 255, 255, 0.75);
+  box-shadow: var(--ad-shadow-2);
+  animation: ad-fadeIn 520ms ease both;
+}
+
+.adminDashHero__kicker {
+  color: rgba(11, 42, 102, 0.82);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.adminDashHero h2 {
+  margin: 10px 0 0;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+
+.adminDashHero p {
+  margin: 8px 0 0;
+  color: var(--ad-muted);
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+/* Cards grid */
+.adminDashGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.adminDashCard {
+  grid-column: span 6;
+  padding: 16px;
+  border-radius: var(--ad-radius);
+  border: 1px solid rgba(12, 31, 58, 0.10);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--ad-shadow-2);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  animation: ad-slideUp 520ms ease both;
+}
+
+.adminDashCard:nth-child(1) { animation-delay: 40ms; }
+.adminDashCard:nth-child(2) { animation-delay: 90ms; }
+.adminDashCard:nth-child(3) { animation-delay: 140ms; }
+.adminDashCard:nth-child(4) { animation-delay: 190ms; }
+
+.adminDashCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(7, 20, 39, 0.18);
+  border-color: rgba(31, 140, 255, 0.35);
+}
+
+.adminDashCard::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(420px 140px at 20% 10%, rgba(31, 140, 255, 0.25), transparent 55%),
+    radial-gradient(320px 120px at 70% 0%, rgba(55, 189, 248, 0.22), transparent 50%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.adminDashCard:hover::before {
+  opacity: 1;
+}
+
+.adminDashCard__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.adminDashCard__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 22px;
+  box-shadow: 0 18px 44px rgba(31, 140, 255, 0.22);
+}
+
+.adminDashCard__icon--ship {
+  background: linear-gradient(135deg, #0b2a66 0%, #1f8cff 100%);
+}
+
+.adminDashCard__icon--route {
+  background: linear-gradient(135deg, #071427 0%, #37bdf8 100%);
+}
+
+.adminDashCard__icon--schedule {
+  background: linear-gradient(135deg, #0b2a66 0%, #37bdf8 100%);
+}
+
+.adminDashCard__icon--passengers {
+  background: linear-gradient(135deg, #071427 0%, #1f8cff 100%);
+}
+
+.adminDashCard__text h3 {
+  margin: 2px 0 0;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.adminDashCard__text p {
+  margin: 8px 0 0;
+  color: var(--ad-muted);
+  line-height: 1.45;
+  font-size: 13px;
+}
+
+.adminDashCard__cta {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(31, 140, 255, 0.10);
+  border: 1px solid rgba(31, 140, 255, 0.18);
+  color: rgba(11, 42, 102, 0.9);
+  font-weight: 900;
+  font-size: 12px;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.adminDashCard:hover .adminDashCard__cta {
+  transform: translateX(2px);
+  background: rgba(31, 140, 255, 0.14);
+}
+
+/* Animations */
+@keyframes ad-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ad-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .adminDashCard {
+    grid-column: span 12;
+  }
+
+  .adminDashTop__left {
+    min-width: unset;
+  }
+
+  .adminDashProfile__meta span:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .adminDash {
+    padding: 12px 10px 28px;
+  }
+
+  .adminDashHero h2 {
+    font-size: 22px;
+  }
+
+  .adminDashTop {
+    padding: 10px 12px;
+  }
+
+  .adminDashProfile {
+    padding: 6px 8px;
+  }
+}
+
